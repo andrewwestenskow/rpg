@@ -1,13 +1,12 @@
 import React from 'react'
+import './style.css'
 
 export default (WrappedComponent) => {
   return (props) => (
     <div
+      className="screen-background"
       style={{
         backgroundImage: `url(${props.background})`,
-        height: '100vh',
-        width: '100vw',
-        backgroundSize: 'contain',
       }}
     >
       <WrappedComponent {...props} />

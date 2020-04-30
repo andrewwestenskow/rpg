@@ -1,0 +1,10 @@
+.battle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.half {
+  height: 100%;
+  width: 50%;
+}
