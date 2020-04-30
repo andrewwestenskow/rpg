@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import HpBar from 'components/stats/HpBar'
 
 export default (WrappedComponent) => {
   return (props) => {
@@ -8,9 +9,27 @@ export default (WrappedComponent) => {
     const stats = { hp, speed }
     const setters = { setHp, setSpeed }
 
-    console.log(props)
+    let size
+
+    switch (props.sze) {
+      case 'small':
+        size = '128px'
+        break
+      default:
+        size = '128px'
+        break
+    }
+
     return (
-      <WrappedComponent level={props.level} stats={stats} setters={setters} />
+      <div style={{ width: size }}>
+        <HpBar total={props.hp} remaining={hp} />
+        <WrappedComponent
+          size={size}
+          level={props.level}
+          stats={stats}
+          setters={setters}
+        />
+      </div>
     )
   }
 }

@@ -6,5 +6,7 @@ export default (level, enemy, key) => {
   switch (enemy) {
     case 'ghost':
       return <Ghost {...ghost[level]} key={key} />
+    default:
+      return <div>No enemy</div>
   }
 }

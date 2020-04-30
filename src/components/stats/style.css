@@ -1,0 +1,21 @@
+.hp-bar {
+  width: 80%;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid black;
+  background: white;
+  transform: translate(0, 25px);
+}
+
+.hp-remaining {
+  position: absolute;
+  background-color: red;
+  height: 100%;
+  top: 0;
+}
+
+.hp-text {
+  position: relative;
+  z-index: 2;
+}

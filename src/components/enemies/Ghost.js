@@ -5,8 +5,18 @@ import applyEnemyType from 'hocs/applyEnemyType'
 import idle1 from 'assets/enemies/ghost/idle1.png'
 
 const Ghost = (props) => {
-  console.log(props)
-  return <img style={{ transform: 'scaleX(-1)' }} alt="Ghost" src={idle1} />
+  const {
+    stats: { hp, speed },
+    setters: { setHp, setSpeed },
+  } = props
+  return (
+    <img
+      onClick={() => setHp(hp - 10)}
+      style={{ transform: 'scaleX(-1)', width: props.size }}
+      alt="Ghost"
+      src={idle1}
+    />
+  )
 }
 
 Ghost.propTypes = {

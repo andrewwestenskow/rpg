@@ -4,16 +4,16 @@ import setBackground from 'hocs/setBackground'
 import calculateStats from 'utils/calculateStats'
 import './style.css'
 
-const renderEnemies = (enemies) =>
+const renderEnemies = (enemies, level) =>
   enemies.map((enemy, index) => {
-    return calculateStats(1, enemy, index)
+    return calculateStats(level, enemy, index)
   })
 
 const Battle = ({ enemies }) => {
   return (
     <div className="battle">
       <div className="half"></div>
-      <div className="half">{renderEnemies(enemies)}</div>
+      <div className="half">{renderEnemies(enemies, 1)}</div>
     </div>
   )
 }
