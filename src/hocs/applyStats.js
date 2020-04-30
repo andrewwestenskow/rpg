@@ -20,12 +20,17 @@ export default (WrappedComponent) => {
         break
     }
 
+    const newProps = { ...props }
+
+    delete newProps.hp
+    delete newProps.speed
+
     return (
       <div style={{ width: size }}>
         <HpBar total={props.hp} remaining={hp} />
         <WrappedComponent
+          {...newProps}
           size={size}
-          level={props.level}
           stats={stats}
           setters={setters}
         />

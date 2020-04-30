@@ -11,7 +11,7 @@ const Ghost = (props) => {
   } = props
   return (
     <img
-      onClick={() => setHp(hp - 10)}
+      onClick={() => setHp(hp - 5)}
       style={{ transform: 'scaleX(-1)', width: props.size }}
       alt="Ghost"
       src={idle1}

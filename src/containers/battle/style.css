@@ -6,8 +6,14 @@
 
 .half {
   height: 100%;
-  width: 50%;
+  width: 45%;
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
+}
+
+.turn-order {
+  width: 10%;
+  height: 100%;
+  text-align: center;
 }
