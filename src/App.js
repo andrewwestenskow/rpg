@@ -7,7 +7,7 @@ import './App.css'
 function App() {
   return (
     <div className="App">
-      <Battle enemies={[Ghost, Ghost, Ghost]} background={futureCity} />
+      <Battle enemies={['ghost']} background={futureCity} />
     </div>
   )
 }
