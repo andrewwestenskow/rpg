@@ -11,7 +11,9 @@ export default (initialStats, round, setRound) => {
       setEnemies(init.map((e) => renderEnemies(e, round, setRound)))
     } else {
       setEnemies((oldEnemies) =>
-        oldEnemies.map((e) => <Enemy key={e.id} {...e.props} round={round} />)
+        oldEnemies.map((e) => (
+          <Enemy key={e.props.id} {...e.props} round={round} />
+        ))
       )
     }
   }, [round, init, enemies.length, setRound])
