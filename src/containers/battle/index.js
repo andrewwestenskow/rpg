@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PT from 'prop-types'
 import setBackground from 'hocs/setBackground'
 import calculateStats from 'utils/calculateStats'
-import renderEnemies from 'utils/renderEnemies'
 import useBattleOrder from 'hooks/useBattleOrder'
+import useEnemies from 'hooks/useEnemies'
 import './style.css'
 
 const Battle = ({ enemies, style }) => {
+  const [round, setRound] = useState(1)
   const applyStats = (enemies, level) =>
     enemies.map((enemy) => {
       return calculateStats(level, enemy)
@@ -14,11 +15,8 @@ const Battle = ({ enemies, style }) => {
 
   const stats = applyStats(enemies, 1)
 
-  const { battleOrder, round, takeTurn } = useBattleOrder(stats)
-
-  console.log(round)
-
-  const enemyComponents = stats.map((enemy) => renderEnemies(enemy, takeTurn))
+  const battleOrder = useBattleOrder(stats, round)
+  const enemyComponents = useEnemies(stats, round, setRound)
   return (
     <div style={style} className="battle">
       <div className="half"></div>

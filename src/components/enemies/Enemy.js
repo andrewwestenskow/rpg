@@ -5,15 +5,17 @@ import './style.css'
 
 const Enemy = (props) => {
   const {
-    takeTurn,
+    round,
+    setRound,
     stats: { hp },
     setters: { setHp },
   } = props
+
   return (
     <img
       onClick={() => {
         setHp(hp - 5)
-        takeTurn()
+        setRound(round + 1)
       }}
       style={{ transform: 'scaleX(-1)', width: props.size }}
       alt="Enemy"
