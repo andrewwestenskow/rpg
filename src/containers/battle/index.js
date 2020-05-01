@@ -6,7 +6,7 @@ import renderEnemies from 'utils/renderEnemies'
 import useBattleOrder from 'hooks/useBattleOrder'
 import './style.css'
 
-const Battle = ({ enemies }) => {
+const Battle = ({ enemies, style }) => {
   const applyStats = (enemies, level) =>
     enemies.map((enemy) => {
       return calculateStats(level, enemy)
@@ -20,10 +20,11 @@ const Battle = ({ enemies }) => {
 
   const enemyComponents = stats.map((enemy) => renderEnemies(enemy, takeTurn))
   return (
-    <div className="battle">
+    <div style={style} className="battle">
       <div className="half"></div>
       <div className="half">{enemyComponents}</div>
       <div className="turn-order">
+        <p>Round: {round}</p>
         {battleOrder.map((enemy, index) => (
           <p key={index}>{enemy.name}</p>
         ))}

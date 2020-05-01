@@ -1,0 +1,51 @@
+.ghost-image {
+  animation: ghost-idle 1.25s linear infinite;
+}
+
+@keyframes ghost-idle {
+  0% {
+    content: url('../../assets/enemies/ghost/idle1.png');
+  }
+
+  25% {
+    content: url('../../assets/enemies/ghost/idel2.png');
+  }
+
+  50% {
+    content: url('../../assets/enemies/ghost/idle3.png');
+  }
+
+  75% {
+    content: url('../../assets/enemies/ghost/idel2.png');
+  }
+
+  100% {
+    content: url('../../assets/enemies/ghost/idle1.png');
+  }
+}
+
+.vampire-image {
+  animation: vampire-idle 1.25s linear infinite;
+}
+
+@keyframes vampire-idle {
+  0% {
+    content: url('../../assets/enemies/vampire/idle1.png');
+  }
+
+  25% {
+    content: url('../../assets/enemies/vampire/idle2.png');
+  }
+
+  50% {
+    content: url('../../assets/enemies/vampire/idle3.png');
+  }
+
+  75% {
+    content: url('../../assets/enemies/vampire/idle2.png');
+  }
+
+  100% {
+    content: url('../../assets/enemies/vampire/idle1.png');
+  }
+}

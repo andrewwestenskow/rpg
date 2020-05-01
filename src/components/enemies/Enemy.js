@@ -1,6 +1,7 @@
 import React from 'react'
 import PT from 'prop-types'
 import applyStats from 'hocs/applyStats'
+import './style.css'
 
 const Enemy = (props) => {
   const {
@@ -16,7 +17,7 @@ const Enemy = (props) => {
       }}
       style={{ transform: 'scaleX(-1)', width: props.size }}
       alt="Enemy"
-      src={props.image}
+      className={`${props.type}-image`}
     />
   )
 }
