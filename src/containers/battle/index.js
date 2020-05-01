@@ -1,35 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PT from 'prop-types'
-import RenderEnemies from './RenderEnemies'
 import setBackground from 'hocs/setBackground'
 import calculateStats from 'utils/calculateStats'
+import renderEnemies from 'utils/renderEnemies'
 import useBattleOrder from 'hooks/useBattleOrder'
 import './style.css'
 
 const Battle = ({ enemies }) => {
-  const [round, setRound] = useState(1)
-  const takeTurn = () => setRound(round + 1)
-
-  const enemyInfo = (enemies, level) =>
+  const applyStats = (enemies, level) =>
     enemies.map((enemy) => {
-      return calculateStats(level, enemy, takeTurn)
+      return calculateStats(level, enemy)
     })
 
-  console.log(enemyInfo(enemies, 1))
+  const stats = applyStats(enemies, 1)
 
-  // const rawStats = enemyComponents.map((enemy) => enemy.props)
+  const { battleOrder, round, takeTurn } = useBattleOrder(stats)
 
-  // const battleOrder = useBattleOrder(rawStats, round)
+  console.log(round)
 
+  const enemyComponents = stats.map((enemy) => renderEnemies(enemy, takeTurn))
   return (
     <div className="battle">
       <div className="half"></div>
-      <div className="half">{/* <RenderEnemies enemies={enemies} /> */}</div>
-      {/* <div className="turn-order">
+      <div className="half">{enemyComponents}</div>
+      <div className="turn-order">
         {battleOrder.map((enemy, index) => (
           <p key={index}>{enemy.name}</p>
         ))}
-      </div> */}
+      </div>
     </div>
   )
 }
