@@ -7,6 +7,7 @@ const Enemy = (props) => {
   const {
     round,
     setRound,
+    isDead,
     stats: { hp },
     setters: { setHp },
   } = props

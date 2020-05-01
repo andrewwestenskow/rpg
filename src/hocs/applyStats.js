@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import HpBar from 'components/stats/HpBar'
 
 export default (WrappedComponent) => {
   return (props) => {
     const [hp, setHp] = useState(props.hp)
     const [speed, setSpeed] = useState(props.speed)
+    const [isDead, setIsDead] = useState(false)
 
     const stats = { hp, speed }
     const setters = { setHp, setSpeed }
@@ -25,16 +26,27 @@ export default (WrappedComponent) => {
     delete newProps.hp
     delete newProps.speed
 
+    useEffect(() => {
+      if (hp <= 0) {
+        alert(`You killed ${props.name}`)
+        setIsDead(true)
+      }
+    }, [hp])
+
     return (
-      <div style={{ width: size }}>
-        <HpBar total={props.hp} remaining={hp} />
-        <WrappedComponent
-          {...newProps}
-          size={size}
-          stats={stats}
-          setters={setters}
-        />
-      </div>
+      <>
+        {!isDead && (
+          <div style={{ width: size }}>
+            <HpBar total={props.hp} remaining={hp} />
+            <WrappedComponent
+              {...newProps}
+              size={size}
+              stats={stats}
+              setters={setters}
+            />
+          </div>
+        )}
+      </>
     )
   }
 }
