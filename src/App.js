@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   return (
-    <div className="App">
+    <div onContextMenu={(e) => e.preventDefault()} className="App">
       <Battle enemies={['ghost', 'vampire', 'ghost']} background={futureCity} />
     </div>
   )

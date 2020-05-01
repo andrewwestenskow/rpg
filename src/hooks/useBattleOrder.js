@@ -4,7 +4,7 @@ export default (enemies, round) => {
   const [battleOrder, setBattleOrder] = useState([])
   const [init, setInit] = useState([])
 
-  const sorted = enemies.sort((a, b) => a.speed - b.speed)
+  const sorted = [...enemies].sort((a, b) => a.speed - b.speed)
 
   let initialOrder = [...sorted]
 
