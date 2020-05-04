@@ -1,4 +1,5 @@
 import React from 'react'
+import InteractionMenu from 'containers/interaction'
 import './style.css'
 
 export default (WrappedComponent) => {
@@ -33,7 +34,9 @@ export default (WrappedComponent) => {
         }}
         {...props}
       />
-      <div className="interaction-menu"></div>
+      <div className="interaction-menu">
+        <InteractionMenu party={props.party} />
+      </div>
     </div>
   )
 }
