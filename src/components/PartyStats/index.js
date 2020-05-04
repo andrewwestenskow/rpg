@@ -1,8 +1,19 @@
 import React from 'react'
 import './style.css'
 
-const PartyStats = (props) => {
-  console.log(props.party)
-  return <div className="party-stats"></div>
+const PartyStats = ({ party }) => {
+  console.log(party)
+  return (
+    <div className="party-stats">
+      {party.map((e) => {
+        const { props } = e
+        return (
+          <div key={props.id} className="stat-row">
+            <p>{props.name}</p>
+          </div>
+        )
+      })}
+    </div>
+  )
 }
 export default PartyStats

@@ -1,26 +1,12 @@
 import React from 'react'
 import InteractionMenu from 'containers/interaction'
 import './style.css'
+import Mage from 'classes/Mage'
 
 export default (WrappedComponent) => {
-  const mageStarter = {
-    id: 1,
-    name: 'Mage',
-    type: 'mage',
-    level: 1,
-    hp: 100,
-    speed: 50,
-    size: 'small',
-  }
-  const setParty = () =>
-    localStorage.setItem('party', JSON.stringify([mageStarter]))
-
   return (props) => (
     <div className="screen-background">
-      <div className="screen-headline">
-        <button onClick={setParty}>Set party</button>
-        <button onClick={() => localStorage.clear()}>Clear</button>
-      </div>
+      <div className="screen-headline"></div>
       <WrappedComponent
         style={{
           backgroundImage: `url(${props.background})`,

@@ -8,7 +8,7 @@ export default (units, round, deadUnits) => {
 
   let initialOrder = [...sorted]
 
-  while (initialOrder.length < 15) {
+  while (initialOrder.length < 15 && units) {
     initialOrder = [...initialOrder, ...sorted]
   }
 

@@ -1,32 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import Hero from 'components/heroes/Hero'
+import createHeroes from 'utils/createHeroes'
 
-export default (initialParty, round, setRound, setDeadUnits) => {
+export default () => {
   const [party, setParty] = useState([])
-  const [init] = useState(initialParty)
+  const [heroComponents, setHeroComponents] = useState([])
 
   useEffect(() => {
-    if (!party.length) {
-      setParty(
-        init.map((e) => (
-          <Hero
-            isHero
-            key={e.id}
-            {...e}
-            setDeadUnits={setDeadUnits}
-            round={round}
-            setRound={setRound}
-          />
-        ))
-      )
-    } else {
-      setParty((oldParty) =>
-        oldParty.map((e) => (
-          <Hero key={e.props.id} {...e.props} round={round} />
-        ))
-      )
+    async function getStorage() {
+      return await localStorage.getItem('party')
     }
-  }, [round, init, party.length, setRound, setDeadUnits])
+    getStorage().then((storedParty) => {
+      const parsedParty = JSON.parse(storedParty)
 
-  return party
+      const partyMembers = parsedParty.map((e) => createHeroes(e))
+      setParty(partyMembers)
+      const components = partyMembers.map((e) => console.log(e))
+    })
+  }, [])
+
+  return { party, heroComponents }
 }

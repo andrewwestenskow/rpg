@@ -1,26 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import BattleContainer from 'containers/battle'
 import futureCity from 'assets/backgrounds/futureCity.png'
 import './App.css'
 
 function App() {
-  const [party, setParty] = useState([])
-
-  useEffect(() => {
-    const fetchedParty = localStorage.getItem('party')
-    if (fetchedParty) {
-      setParty(JSON.parse(fetchedParty))
-    }
-  }, [])
+  const mageStarter = { class: 'mage', stats: ['Mage man', 50, 100] }
+  const storeParty = () =>
+    localStorage.setItem('party', JSON.stringify([mageStarter]))
   return (
     <div onContextMenu={(e) => e.preventDefault()} className="App">
-      {party.length && (
-        <BattleContainer
-          party={party}
-          enemies={['ghost', 'vampire', 'ghost']}
-          background={futureCity}
-        />
-      )}
+      {/* <button onClick={storeParty}>Set party</button>
+      <button onClick={() => localStorage.clear()}>Clear</button> */}
+
+      <BattleContainer
+        enemies={['ghost', 'vampire', 'ghost']}
+        background={futureCity}
+      />
     </div>
   )
 }

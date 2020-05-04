@@ -1,18 +1,16 @@
 import React from 'react'
-import applyStats from 'hocs/applyStats'
+
 import './style.css'
 
 const Hero = (props) => {
+  console.log(props)
   return (
     <img
-      onClick={() => {
-        props.setters.setHp((hp) => hp - 5)
-        props.setRound((round) => round + 1)
-      }}
-      style={{ maxWidth: props.size, maxHeight: props.size }}
+      onClick={() => {}}
+      style={{ maxWidth: '128px', maxHeight: '128px' }}
       alt={props.type}
-      className={`${props.type}-idle`}
+      className={`${props.class}-idle`}
     />
   )
 }
-export default applyStats(Hero)
+export default Hero
