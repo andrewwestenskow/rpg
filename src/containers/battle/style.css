@@ -1,18 +1,1 @@
-.battle {
-  display: flex;
-}
 
-.half {
-  height: 100%;
-  width: 45%;
-  display: flex;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.turn-order {
-  width: 10%;
-  height: 100%;
-  text-align: center;
-}

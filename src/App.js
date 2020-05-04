@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Battle from 'containers/battle'
+import BattleContainer from 'containers/battle'
 import futureCity from 'assets/backgrounds/futureCity.png'
 import './App.css'
 
@@ -15,7 +15,7 @@ function App() {
   return (
     <div onContextMenu={(e) => e.preventDefault()} className="App">
       {party.length && (
-        <Battle
+        <BattleContainer
           party={party}
           enemies={['ghost', 'vampire', 'ghost']}
           background={futureCity}
