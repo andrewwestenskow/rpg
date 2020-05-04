@@ -39,7 +39,7 @@ export default (WrappedComponent) => {
       <>
         {!isDead && (
           <div style={{ width: size }}>
-            <HpBar total={props.hp} remaining={hp} />
+            {!props.isHero && <HpBar total={props.hp} remaining={hp} />}
             <WrappedComponent
               {...newProps}
               size={size}

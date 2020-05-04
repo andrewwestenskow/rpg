@@ -1,0 +1,49 @@
+.mage-idle {
+  animation: mage-idle 1.85s linear infinite;
+}
+
+@keyframes mage-idle {
+  0% {
+    content: url('../../assets/heroes/mage/idle1.png');
+  }
+
+  10% {
+    content: url('../../assets/heroes/mage/idle2.png');
+  }
+
+  20% {
+    content: url('../../assets/heroes/mage/idle3.png');
+  }
+
+  30% {
+    content: url('../../assets/heroes/mage/idle4.png');
+  }
+
+  40% {
+    content: url('../../assets/heroes/mage/idle5.png');
+  }
+
+  50% {
+    content: url('../../assets/heroes/mage/idle6.png');
+  }
+
+  60% {
+    content: url('../../assets/heroes/mage/idle5.png');
+  }
+
+  70% {
+    content: url('../../assets/heroes/mage/idle4.png');
+  }
+
+  80% {
+    content: url('../../assets/heroes/mage/idle3.png');
+  }
+
+  90% {
+    content: url('../../assets/heroes/mage/idle2.png');
+  }
+
+  100% {
+    content: url('../../assets/heroes/mage/idle1.png');
+  }
+}

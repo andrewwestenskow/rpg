@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 
-export default (enemies, round, deadUnits) => {
+export default (units, round, deadUnits) => {
   const [battleOrder, setBattleOrder] = useState([])
   const [init, setInit] = useState([])
 
-  const sorted = [...enemies].sort((a, b) => a.speed - b.speed)
+  const sorted = [...units].sort((a, b) => a.speed - b.speed)
 
   let initialOrder = [...sorted]
 
@@ -14,9 +14,9 @@ export default (enemies, round, deadUnits) => {
 
   if (!init.length) setInit(initialOrder)
   useEffect(() => {
-    if (!battleOrder.length) {
+    if (!battleOrder.length && init.length) {
       setBattleOrder(init)
-    } else {
+    } else if (battleOrder.length) {
       if (round !== 1) {
         setBattleOrder((currentOrder) => {
           return [
