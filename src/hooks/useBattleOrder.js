@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default (enemies, round) => {
+export default (enemies, round, deadUnits) => {
   const [battleOrder, setBattleOrder] = useState([])
   const [init, setInit] = useState([])
 
@@ -19,11 +19,15 @@ export default (enemies, round) => {
     } else {
       if (round !== 1) {
         setBattleOrder((currentOrder) => {
-          return [currentOrder[1], ...currentOrder.slice(2), currentOrder[0]]
+          return [
+            currentOrder[1],
+            ...currentOrder.slice(2),
+            currentOrder[0],
+          ].filter((e) => !deadUnits.includes(e.id))
         })
       }
     }
-  }, [round, init, battleOrder.length])
+  }, [round, init, battleOrder.length, deadUnits])
 
   return battleOrder
 }

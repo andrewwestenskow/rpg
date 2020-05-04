@@ -26,12 +26,14 @@ export default (WrappedComponent) => {
     delete newProps.hp
     delete newProps.speed
 
+    const { setDeadUnits, id } = props
+
     useEffect(() => {
       if (hp <= 0) {
-        alert(`You killed ${props.name}`)
         setIsDead(true)
+        setDeadUnits((previousDead) => [...previousDead, id])
       }
-    }, [hp])
+    }, [hp, id, setDeadUnits])
 
     return (
       <>

@@ -8,6 +8,7 @@ import './style.css'
 
 const Battle = ({ enemies, style }) => {
   const [round, setRound] = useState(1)
+  const [deadUnits, setDeadUnits] = useState([])
   const applyStats = (enemies, level) =>
     enemies.map((enemy) => {
       return calculateStats(level, enemy)
@@ -15,8 +16,8 @@ const Battle = ({ enemies, style }) => {
 
   const stats = applyStats(enemies, 1)
 
-  const battleOrder = useBattleOrder(stats, round)
-  const enemyComponents = useEnemies(stats, round, setRound)
+  const battleOrder = useBattleOrder(stats, round, deadUnits)
+  const enemyComponents = useEnemies(stats, round, setRound, setDeadUnits)
   return (
     <div style={style} className="battle">
       <div className="half"></div>
