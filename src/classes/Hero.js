@@ -14,6 +14,7 @@ class Hero {
   takeDamage = (amount) => {
     this.hp -= amount
     if (this.hp <= 0) {
+      this.hp = 0
       this.isDead = true
     }
   }

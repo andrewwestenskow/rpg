@@ -4,7 +4,7 @@ import futureCity from 'assets/backgrounds/futureCity.png'
 import './App.css'
 
 function App() {
-  const mageStarter = { class: 'mage', stats: ['Mage man', 50, 100] }
+  const mageStarter = { class: 'mage', stats: ['Mage man'] }
   const storeParty = () =>
     localStorage.setItem('party', JSON.stringify([mageStarter]))
   return (

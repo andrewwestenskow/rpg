@@ -1,7 +1,6 @@
 import React from 'react'
 import InteractionMenu from 'containers/interaction'
 import './style.css'
-import Mage from 'classes/Mage'
 
 export default (WrappedComponent) => {
   return (props) => (

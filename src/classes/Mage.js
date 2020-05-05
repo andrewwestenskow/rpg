@@ -1,8 +1,8 @@
 import Hero from './Hero'
 
 class Mage extends Hero {
-  constructor(name) {
-    super(name, 50, 100)
+  constructor(name, customId, hpOverride) {
+    super(name, 50, 100, hpOverride, customId)
     this.class = 'mage'
     this.size = 'small'
     this.attacks = [

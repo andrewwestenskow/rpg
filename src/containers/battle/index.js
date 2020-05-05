@@ -1,41 +1,57 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Battle from 'components/Battle'
 import PT from 'prop-types'
-import calculateStats from 'utils/calculateStats'
-import createHeroes from 'utils/createHeroes'
-import useBattleOrder from 'hooks/useBattleOrder'
-import useEnemies from 'hooks/useEnemies'
-import useHeroes from 'hooks/useHeroes'
+import useBattleLogic from 'hooks/useBattleLogic'
 import './style.css'
 
-const BattleContainer = ({ enemies, background }) => {
-  const [round, setRound] = useState(1)
-  const [deadUnits, setDeadUnits] = useState([])
+const BattleContainer = ({ enemies: enemyList, background }) => {
+  // TODO 1. Party + stats
+  // 2. Enemies + stats
+  // 3. Battle order (based on speed)
+  // 4. Whose turn?
+  // 5. Dead units
 
-  const applyStats = (enemies, level) =>
-    enemies.map((enemy) => {
-      return calculateStats(level, enemy)
-    })
+  const {
+    participants: { party, enemies },
+    damageEnemy,
+    damageHero,
+    loading,
+  } = useBattleLogic(enemyList, 1)
 
-  const { party, heroComponents } = useHeroes()
+  // const applyStats = (enemies, level) =>
+  //   enemies.map((enemy) => {
+  //     return calculateStats(level, enemy)
+  //   })
 
-  const enemyStats = applyStats(enemies, 1)
+  // const { party, heroComponents } = useHeroes()
 
-  const allUnits = [...enemyStats, ...party]
+  // const enemyStats = applyStats(enemies, 1)
 
-  const battleOrder = useBattleOrder(allUnits, round, deadUnits)
-  const enemyComponents = useEnemies(enemyStats, round, setRound, setDeadUnits)
+  // const allUnits = [...enemyStats, ...party]
 
-  console.log(party)
+  // const battleOrder = useBattleOrder(allUnits, round, deadUnits)
+  // const enemyComponents = useEnemies(enemyStats, round, setRound, setDeadUnits)
+  return loading ? (
+    <div>Loading</div>
+  ) : (
+    <div>
+      <h1>Baddies</h1>
+      {enemies.map((e) => (
+        <p onClick={() => damageEnemy(e.id, 5)}>
+          {e.id} - {e.hp}/{e.maxHp}
+        </p>
+      ))}
 
-  return (
-    <Battle
-      round={round}
-      background={background}
-      battleOrder={battleOrder}
-      enemies={enemyComponents}
-      party={heroComponents}
-    />
+      <h1>HEROES</h1>
+
+      {party.map((e) => {
+        return (
+          <p onClick={() => damageHero(e.id, 5)}>
+            {e.id} - {e.hp}/{e.maxHp} - {e.isDead && 'DEAD'}
+          </p>
+        )
+      })}
+    </div>
   )
 }
 
