@@ -47,7 +47,7 @@ const BattleContainer = ({ enemies: enemyList, background }) => {
       {party.map((e) => {
         return (
           <p onClick={() => damageHero(e.id, 5)}>
-            {e.id} - {e.hp}/{e.maxHp} - {e.isDead && 'DEAD'}
+            {e.name} - {e.id} - {e.hp}/{e.maxHp} - {e.isDead && 'DEAD'}
           </p>
         )
       })}
