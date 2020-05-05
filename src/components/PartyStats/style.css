@@ -4,9 +4,38 @@
   border: 2px solid white;
   border-radius: 10px;
   margin-right: 10px;
-  padding: 0.5%;
+  padding: 1.25% 2.5%;
 }
 
 .stat-row {
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 25%;
+}
+
+.stat-menu-name {
+  width: 40%;
+  max-width: 40%;
+}
+
+.stat-menu-hp {
+  width: 10%;
+}
+
+.stat-menu-hp-bar {
+  width: 48%;
+  position: relative;
+  background-color: white;
+  height: 50%;
+  border-radius: 10px;
+}
+
+.stat-menu-hp-bar-inner {
+  position: absolute;
+  background-color: green;
+  left: 0;
+  height: 100%;
+  border-radius: 10px;
 }
