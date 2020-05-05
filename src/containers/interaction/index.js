@@ -6,7 +6,7 @@ const InteractionMenu = (props) => {
   return (
     <div style={{ height: '100%', width: '100%', display: 'flex' }}>
       <PartyStats party={props.party} />
-      <BattleMenu />
+      <BattleMenu nextHero={props.nextHero} />
     </div>
   )
 }

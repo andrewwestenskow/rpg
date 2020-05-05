@@ -82,11 +82,10 @@ export default (enemyList, level) => {
 
     takeTurn()
   }
-
-  const loading = !participants.party.length
-
   const currentTurn = turnOrder[0]
   const nextHero = turnOrder.find((e) => e.class)
+
+  const loading = !participants.party.length || !turnOrder.length
 
   return {
     participants,

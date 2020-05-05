@@ -20,7 +20,7 @@ export default (WrappedComponent) => {
         {...props}
       />
       <div className="interaction-menu">
-        <InteractionMenu party={props.party} />
+        <InteractionMenu nextHero={props.nextHero} party={props.party} />
       </div>
     </div>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import './style.css'
 
 const PartyStats = ({ party }) => {
-  console.log(party)
   return (
     <div className="party-stats">
       {party.map((e) => {

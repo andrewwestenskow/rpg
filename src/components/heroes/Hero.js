@@ -3,7 +3,6 @@ import React from 'react'
 import './style.css'
 
 const Hero = (props) => {
-  console.log(props)
   return (
     <img
       onClick={() => {}}
