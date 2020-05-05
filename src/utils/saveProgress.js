@@ -7,7 +7,7 @@ const convertParty = (party) =>
   }))
 
 export default (participants) => {
-  const { party, enemies } = participants
+  const { party } = participants
   const saveReady = convertParty(party)
   asyncLocalStorage.set('party', saveReady, JSON.stringify)
   console.log(saveReady)

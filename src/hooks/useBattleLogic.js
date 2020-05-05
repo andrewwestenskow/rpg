@@ -8,11 +8,19 @@ export default (enemyList, level) => {
   const [enemiesStarter] = useState(enemyList)
   const [round, setRound] = useState(0)
   const [participants, setParticipants] = useState({ party: [], enemies: [] })
+  const [turnOrder, setTurnOrder] = useState([])
   const [xpEarned, setXpEarned] = useState(0)
 
   const takeTurn = () => {
     saveProgress(participants)
+    setTurnOrder((prev) => [...prev.slice(1), prev[0]])
     setRound((prev) => prev + 1)
+  }
+
+  const determineTurnOrder = (allParticipants) => {
+    const combatants = [...allParticipants]
+    combatants.sort((a, b) => a.speed - b.speed)
+    setTurnOrder(combatants)
   }
 
   useEffect(() => {
@@ -22,6 +30,7 @@ export default (enemyList, level) => {
         calculateStats(level, enemy)
       )
       setParticipants({ party, enemies })
+      determineTurnOrder([...party, ...enemies])
     })
   }, [enemiesStarter, level])
 
@@ -76,6 +85,9 @@ export default (enemyList, level) => {
 
   const loading = !participants.party.length
 
+  const currentTurn = turnOrder[0]
+  const nextHero = turnOrder.find((e) => e.class)
+
   return {
     participants,
     loading,
@@ -83,6 +95,9 @@ export default (enemyList, level) => {
     takeTurn,
     damageEnemy,
     damageHero,
+    turnOrder,
+    currentTurn,
     xpEarned,
+    nextHero,
   }
 }

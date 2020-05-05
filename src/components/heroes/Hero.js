@@ -8,7 +8,7 @@ const Hero = (props) => {
     <img
       onClick={() => {}}
       style={{ maxWidth: '128px', maxHeight: '128px' }}
-      alt={props.type}
+      alt={props.class}
       className={`${props.class}-idle`}
     />
   )
