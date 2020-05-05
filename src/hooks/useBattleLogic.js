@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import asyncLocalStorage from 'utils/asyncLocalStorage'
 import createHeroes from 'utils/createHeroes'
 import calculateStats from 'utils/calculateStats'
+import saveProgress from 'utils/saveProgress'
 
 export default (enemyList, level) => {
   const [enemiesStarter] = useState(enemyList)
@@ -10,6 +11,7 @@ export default (enemyList, level) => {
   const [xpEarned, setXpEarned] = useState(0)
 
   const takeTurn = () => {
+    saveProgress(participants)
     setRound((prev) => prev + 1)
   }
 

@@ -9,8 +9,8 @@ function App() {
     localStorage.setItem('party', JSON.stringify([mageStarter]))
   return (
     <div onContextMenu={(e) => e.preventDefault()} className="App">
-      {/* <button onClick={storeParty}>Set party</button>
-      <button onClick={() => localStorage.clear()}>Clear</button> */}
+      <button onClick={storeParty}>Set party</button>
+      <button onClick={() => localStorage.clear()}>Clear</button>
 
       <BattleContainer
         enemies={['ghost', 'vampire', 'ghost']}

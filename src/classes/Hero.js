@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid'
 
 class Hero {
-  constructor(name, speed, maxHp, hp, id) {
-    this.level = 1
+  constructor(name, speed, maxHp, hp, id, level) {
+    this.level = level || 1
     this.maxHp = maxHp
     this.hp = hp || maxHp
     this.speed = speed

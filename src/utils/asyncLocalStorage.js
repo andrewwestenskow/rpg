@@ -13,4 +13,13 @@ export default {
       }
     })
   },
+  set: (key, value, handlerFunction) => {
+    return new Promise((resolve, reject) => {
+      localStorage.setItem(
+        key,
+        handlerFunction ? handlerFunction(value) : value
+      )
+      resolve('success')
+    })
+  },
 }
